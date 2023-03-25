@@ -14,5 +14,8 @@
   },
   "scripts": {
     "start": "ts-node ./src/start.ts"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7"
   }
 }
