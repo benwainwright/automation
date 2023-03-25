@@ -1,6 +1,5 @@
 import {
   Client,
-  Entity,
   HASS_HOST_ENV,
   HASS_PORT_ENV,
   HASS_TOKEN_ENV,
@@ -9,9 +8,11 @@ import {
 
 import { getEnv } from "./libs/utils/get-env";
 import dotEnv from "dotenv";
+import { initialise } from "./automations/heating-controller";
 
 export const start = async () => {
   dotEnv.config();
+
   const logger = new Logger();
   const host = getEnv(HASS_HOST_ENV);
   const token = getEnv(HASS_TOKEN_ENV);
@@ -20,7 +21,7 @@ export const start = async () => {
   const client = new Client(host, token, port, logger);
   await client.init();
 
-  const entity = new Entity("calendar.personal_calendar", client);
+  initialise(client);
 };
 
 start().catch((error) => console.log(error));

@@ -9,7 +9,7 @@ export class Entity<I extends string> {
     this.client.onStateLoaded(this.id, this.stateLoadedListener);
     const state = this.client.cachedStates().get(this.id);
 
-    if (!state || !state.entity_id.startsWith(id)) {
+    if (!state) {
       throw new Error(
         "State could not be loaded. That means either the entity id is wrong, or the client has not been initialised"
       );

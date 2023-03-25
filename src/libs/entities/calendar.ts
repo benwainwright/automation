@@ -15,8 +15,11 @@ export class Calendar<I extends `calendar.${string}`> {
     return this.entity.state.state === "on";
   }
 
-  get state() {
-    return this.entity.state;
+  get currentEvent() {
+    if (this.entity.state.entity_id !== this.id) {
+      throw new Error("State id did not match id. Something has gone wrong");
+    }
+    return this.parseAttributes(this.entity.state.attributes);
   }
 
   private parseAttributes(
@@ -32,7 +35,9 @@ export class Calendar<I extends `calendar.${string}`> {
   public onStartEvent(callback: StartEventCallback) {
     this.entity.onStateChanged((oldState, newState) => {
       if (oldState.state === "off" && newState.state === "on") {
-        callback(this.parseAttributes(newState.attributes));
+        if (newState.entity_id === this.id) {
+          callback(this.parseAttributes(newState.attributes));
+        }
       }
     });
   }

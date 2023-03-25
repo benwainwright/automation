@@ -61,6 +61,10 @@ export class Client {
     ]);
   }
 
+  public async callService<F>(domain: string, service: string, fields?: F) {
+    await this.hassApi.get.callService(domain, service, fields);
+  }
+
   public removeStateChangedCallback(
     entityId: string,
     callback: StateChangedCallback
@@ -124,7 +128,6 @@ export class Client {
   }
 
   public cachedStates() {
-    console.log(JSON.stringify(this.states));
     return this.states;
   }
 }
