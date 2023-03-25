@@ -1,7 +1,6 @@
 import { FIVE_MINUTES } from "./constants";
 import { HomeAssistantApi } from "./home-assistant-api";
-import { Logger } from "./logger";
-import { RawState, State, StateChangedEvent } from "@types";
+import { Logger, RawState, State, StateChangedEvent } from "@types";
 import { removeItemAtIndex } from "@utils";
 
 type StateLoadCallback = (state: State) => void;
@@ -102,6 +101,7 @@ export class Client {
   }
 
   private async loadStates() {
+    this.logger.debug(`Loading states`);
     const states: RawState[] = await this.hassApi.get.getStates();
     const stateMap = new Map<string, State>();
     states
@@ -112,19 +112,21 @@ export class Client {
         callbacks?.forEach((callback) => callback(state));
       });
 
+    this.logger.debug(`Finished loading states`);
     this.states = stateMap;
   }
 
   public close() {
     this.hassApi.close();
     this.timers.forEach((timer) => clearInterval(timer));
+    this.logger.info(`Hass client closed`);
   }
 
   public async init() {
     await this.hassApi.init();
-    this.logger.info("Hass client initialised");
     this.hassApi.get.on("state_changed", this.stateChangedListener.bind(this));
     await this.loadStates();
+    this.logger.info("Hass client initialised");
   }
 
   public cachedStates() {

@@ -1,12 +1,12 @@
-import { Client, Logger } from "@core";
+import { Client } from "@core";
 import { getEntities } from "../get-entities";
 import { switchHeatingInAllRoomsOff } from "./switch-heating-in-all-rooms-off";
 import { switchHeatingInAllRoomsBackOn } from "./switch-heating-in-all-rooms-back-on";
 import { getTimeout } from "./get-timeout";
+import { Logger } from "@types";
 
-export const initialise = (client: Client) => {
+export const initialise = (client: Client, logger: Logger) => {
   let timeout: NodeJS.Timer | undefined;
-  const logger = new Logger();
 
   const { personalCalendar } = getEntities(client);
 

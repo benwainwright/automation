@@ -7,4 +7,4 @@ export {
 } from "./constants";
 export { Entity } from "./entity";
 export { HomeAssistantApi } from "./home-assistant-api";
-export { Logger } from "./logger";
+export { logger } from "./logger";

@@ -6,3 +6,4 @@ export { RawState } from "./raw-state";
 export { StateChangedEvent } from "./state-changed-event";
 export { StateContext } from "./state-context";
 export { State } from "./state";
+export { Logger } from "./logger";

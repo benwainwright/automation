@@ -1,5 +1,4 @@
-export class Logger {
-  info(message: string) {
-    console.log(message);
-  }
-}
+import { Logger as TsLogger } from "tslog";
+import { APP_NAME } from "./constants";
+
+export const logger = new TsLogger({ name: APP_NAME });
