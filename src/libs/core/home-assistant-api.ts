@@ -6,7 +6,8 @@ export class HomeAssistantApi {
   public constructor(
     private host: string,
     private token: string,
-    private port: number
+    private port: number,
+    private path?: string
   ) {}
 
   public get get() {
@@ -27,6 +28,7 @@ export class HomeAssistantApi {
         host: this.host,
         token: this.token,
         port: this.port,
+        path: this.path,
       });
     }
   }

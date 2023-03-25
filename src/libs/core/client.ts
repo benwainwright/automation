@@ -25,9 +25,15 @@ export class Client {
     private host: string,
     private token: string,
     private port: number,
-    private logger: Logger
+    private logger: Logger,
+    private path?: string
   ) {
-    this.hassApi = new HomeAssistantApi(this.host, this.token, this.port);
+    this.hassApi = new HomeAssistantApi(
+      this.host,
+      this.token,
+      this.port,
+      this.path
+    );
 
     const loadStateTimers = setInterval(async () => {
       await this.loadStates();
