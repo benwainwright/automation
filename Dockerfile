@@ -14,6 +14,6 @@ COPY ./config.yaml /config.yaml
 COPY ./run.sh /run.sh
 COPY ./tsconfig.json /tsconfig.json
 
-RUN chmod a+x /run.sh
+RUN chmod 755 /run.sh
 
 CMD [ "/run.sh" ]
