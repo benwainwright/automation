@@ -2,6 +2,7 @@ name: "My Home Automations"
 description: "All of my home automations written in TypeScript"
 version: "1.0.0"
 slug: "automations"
+init: false
 arch:
   - aarch64
   - amd64

@@ -1,3 +1,4 @@
+export { Expand } from "./expand";
 export { BaseState } from "./base-state";
 export { CalendarEvent } from "./calendar-event";
 export { CalendarState } from "./calendar-state";
