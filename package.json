@@ -7,13 +7,16 @@
     "@tsconfig/recommended": "^1.0.2",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.9",
+    "dotenv": "^16.0.3",
     "homeassistant-ws": "^0.2.2",
     "jest": "^29.5.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   },
   "scripts": {
-    "start": "ts-node ./src/start.ts"
+    "start": "ts-node ./src/start.ts",
+    "build": "docker build --build-arg BUILD_FROM='homeassistant/i386-base:latest' -t local/ts-automation .",
+    "start-docker": "docker run --env-file ./.env --rm -v $PWD/data:/data local/ts-automation"
   },
   "devDependencies": {
     "prettier": "^2.8.7"

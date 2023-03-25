@@ -3,7 +3,11 @@ import hass, { HassApi } from "homeassistant-ws";
 export class HomeAssistantApi {
   private hassApi: HassApi | undefined;
 
-  public constructor(private host: string, private token: string) {}
+  public constructor(
+    private host: string,
+    private token: string,
+    private port: number
+  ) {}
 
   public get get() {
     if (!this.hassApi) {
@@ -13,11 +17,16 @@ export class HomeAssistantApi {
     return this.hassApi;
   }
 
+  public close() {
+    this.hassApi = undefined;
+  }
+
   public async init() {
     if (!this.hassApi) {
       this.hassApi = await hass({
         host: this.host,
         token: this.token,
+        port: this.port,
       });
     }
   }
