@@ -1,4 +1,5 @@
 import hass, { HassApi, HassWsOptions } from "homeassistant-ws";
+import WebSocket from "isomorphic-ws";
 
 export class HomeAssistantApi {
   private hassApi: HassApi | undefined;
