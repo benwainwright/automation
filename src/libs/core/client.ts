@@ -24,8 +24,8 @@ export class Client {
   public constructor(
     private host: string,
     private token: string,
-    private port: number,
     private logger: Logger,
+    private port?: number,
     private path?: string
   ) {
     this.hassApi = new HomeAssistantApi(

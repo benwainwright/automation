@@ -1,11 +1,10 @@
 name: "My Home Automations"
 description: "All of my home automations written in TypeScript"
-version: "1.0.2"
+version: "1.0.3"
 slug: "automations"
 init: false
 environment:
   HASS_HOST: supervisor
-  HASS_PORT: "80"
 
 arch:
   - aarch64

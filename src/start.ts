@@ -7,7 +7,7 @@ export const start = async () => {
   logger.info(`Starting Ben's automation runner`);
   const { host, token, port, path } = getConfig();
 
-  const client = new Client(host, token, port, logger, path);
+  const client = new Client(host, token, logger, port, path);
 
   await client.init();
 

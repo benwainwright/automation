@@ -1,4 +1,4 @@
-import hass, { HassApi } from "homeassistant-ws";
+import hass, { HassApi, HassWsOptions } from "homeassistant-ws";
 
 export class HomeAssistantApi {
   private hassApi: HassApi | undefined;
@@ -6,7 +6,7 @@ export class HomeAssistantApi {
   public constructor(
     private host: string,
     private token: string,
-    private port: number,
+    private port?: number,
     private path?: string
   ) {}
 
@@ -24,11 +24,22 @@ export class HomeAssistantApi {
 
   public async init() {
     if (!this.hassApi) {
+      const ws = !this.port
+        ? {
+            ws: (opts: HassWsOptions) => {
+              return new WebSocket(
+                `${opts.protocol}://${opts.host}${opts.path}`
+              );
+            },
+          }
+        : {};
+
       this.hassApi = await hass({
         host: this.host,
         token: this.token,
         port: this.port,
         path: this.path,
+        ...ws,
       });
     }
   }
