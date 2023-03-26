@@ -12,9 +12,7 @@ export const initialise = (client: Client, logger: Logger) => {
 
   personalCalendar.onStartEvent(async (event) => {
     if (event.location) {
-      logger.info(
-        `Event with location detected. Switching heating in all rooms to 'off'`
-      );
+      logger.info(`Event with location detected. Switching HVAC off`);
     }
 
     await switchHeatingInAllRoomsOff(client);
@@ -24,6 +22,7 @@ export const initialise = (client: Client, logger: Logger) => {
     }
 
     timeout = setTimeout(() => {
+      logger.info(`Event ends in 30 minutes. Switching HVAC back on`);
       switchHeatingInAllRoomsBackOn(client);
       timeout = undefined;
     }, getTimeout(event.end, 30));
