@@ -6,6 +6,7 @@ import fs from "node:fs/promises";
 export const watchAndReload = async (client: Client, logger: Logger) => {
   const watcher = fs.watch(pluginsDir, { recursive: true });
   for await (const event of watcher) {
+    logger.debug(`Change detected in '${event.filename}'`);
     const dir = event.filename.split("/")[0];
     await loadPlugin(dir, client, logger);
   }
