@@ -1,4 +1,4 @@
-import { Client } from "@core";
+import { Client } from "hass-ts";
 import { getEntities } from "../get-entities";
 
 export const switchHeatingInAllRoomsBackOn = async (client: Client) => {

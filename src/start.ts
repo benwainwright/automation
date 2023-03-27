@@ -1,15 +1,11 @@
-import { Client, getConfig } from "@core";
+import { Client } from "hass-ts";
 
 import { initialise } from "./automations/heating-controller";
 import { logger } from "@core";
 
 export const start = async () => {
-  logger.info(`Starting Ben's automation runner`);
-  const { host, token, port, path } = getConfig();
 
-  const client = new Client(host, token, logger, port, path);
-
-  await client.init();
+  const client = await Client.start(logger);
 
   initialise(client, logger);
 };

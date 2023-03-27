@@ -1,5 +1,4 @@
-import { Client } from "@core";
-import { Calendar, Climate } from "@entities";
+import { Client, Calendar, Climate } from "hass-ts";
 
 export const getEntities = (client: Client) => ({
   personalCalendar: new Calendar(`calendar.personal_calendar`, client),

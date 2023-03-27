@@ -1216,6 +1216,17 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+hass-ts@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/hass-ts/-/hass-ts-1.0.3.tgz#f6153433c3332b7e3529088fed7e13f8721fcbe1"
+  integrity sha512-1SVBfChLTz4rFW7TOOHRDGUIPS9jOtn8Jj+Qbu5a7kRAb3SqaBhyqubFrURzMfaxi69MaIW3xi7VW/V84M6Qlg==
+  dependencies:
+    dotenv "^16.0.3"
+    homeassistant-ws "^0.2.2"
+    isomorphic-ws "^5.0.0"
+    tsconfig-paths "^4.1.2"
+    tslog "^4.8.2"
+
 homeassistant-ws@^0.2.2:
   version "0.2.2"
   resolved "https://registry.npmjs.org/homeassistant-ws/-/homeassistant-ws-0.2.2.tgz#ff4676e997f6935c1c9a0592cdcd6b4e2e876706"
