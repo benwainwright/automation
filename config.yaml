@@ -8,7 +8,7 @@ init: false
 homeassistant_api: true
 
 map:
-  - config
+  - config:rw
 
 arch:
   - aarch64
