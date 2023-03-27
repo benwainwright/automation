@@ -21,10 +21,10 @@ export const loadPlugin = async (
       logger.debug(
         `Plugin '${name}' was already loaded. Triggering unload first`
       );
-      await pluginsMap.get(name)?.unload(logger);
+      await pluginsMap.get(name)?.unload?.(logger);
     }
 
-    logger.info(`Loading '${name}'`);
+    logger.debug(`Loading '${name}'`);
 
     const modulePath = `${pluginPath}/load.ts`;
     delete require.cache[require.resolve(modulePath)];
@@ -36,6 +36,7 @@ export const loadPlugin = async (
     logger.debug(`initialising '${name}'`);
     await plugin.initialise(client, logger);
 
+    logger.debug(`Initialised '${name}'`);
     pluginsMap.set(name, plugin);
   }
 };
