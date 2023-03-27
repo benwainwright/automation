@@ -1,1 +1,1 @@
-export const PLUGINS_DIR = "./plugins";
+export const PLUGINS_DIR = "./automation-plugins";
