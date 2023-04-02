@@ -22,7 +22,7 @@ export const updatePackageJson = async (pluginsPackageJsonPath: string) => {
         ...JSON.parse(
           await fs.readFile(pluginsPackageJsonPath, { encoding: "utf-8" })
         ),
-        hassTsDependencies,
+        ...hassTsDependencies,
       }
     : hassTsDependencies;
 
