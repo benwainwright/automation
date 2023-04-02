@@ -1243,10 +1243,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hass-ts@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/hass-ts/-/hass-ts-1.0.4.tgz#c42e3104c4b49df968d985fff5040d00b3badb44"
-  integrity sha512-W6PBC8bAF5hXCQ0zOjXDePsGD0Jzvuibm1Yu3O9H2yJfl0Qlo0eq01ReN2SPIFwXirwklZKPezxAmOsAQ/Z6yw==
+hass-ts@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/hass-ts/-/hass-ts-1.1.0.tgz#91c2fce3c9c788664eda909eb94df9927fb24ece"
+  integrity sha512-xhcKJMlE2Q1B3wOkZD3oGIWvNMPZ5Cl5XXwbnq9YlzbxHvolkS6+Xz/MB7UG5UWK0tRiaoWjHEt0TC1W5tbytA==
   dependencies:
     dotenv "^16.0.3"
     homeassistant-ws "^0.2.2"

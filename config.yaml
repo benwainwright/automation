@@ -1,6 +1,6 @@
 name: "My Home Automations"
 description: "All of my home automations written in TypeScript"
-version: "1.0.12"
+version: "1.0.13"
 slug: "automations"
 hassio_role: default
 init: false
