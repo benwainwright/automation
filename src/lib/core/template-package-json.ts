@@ -26,6 +26,6 @@ export const updatePackageJson = async (pluginsPackageJsonPath: string) => {
       }
     : hassTsDependencies;
 
-  const content = JSON.stringify(packageJson);
+  const content = JSON.stringify(packageJson, null, 2);
   await fs.writeFile(pluginsPackageJsonPath, content);
 };
