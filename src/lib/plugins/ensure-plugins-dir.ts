@@ -6,7 +6,7 @@ import { updatePackageJson } from "../core/template-package-json";
 
 export const ensurePluginsDir = async (logger: Logger) => {
   if (!(await exists(pluginsDir))) {
-    logger.info("Plugins directory didn't exist. Creating...");
+    logger.info(`${pluginsDir} didn't exist. Creating...`);
     await fs.mkdir(pluginsDir, { recursive: true });
   }
   await updatePackageJson(`${pluginsDir}/package.json`);
