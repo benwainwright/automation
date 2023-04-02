@@ -13,7 +13,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "ts-automation": ["src/core.ts"]
+      "ts-automation": ["src/api.ts"]
     }
   }
 }

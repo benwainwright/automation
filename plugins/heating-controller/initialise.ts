@@ -7,6 +7,7 @@ import { getTimeout } from "./get-timeout";
 let timeout: NodeJS.Timer | undefined;
 
 export const initialise = async (client: Client, logger: Logger) => {
+  logger.info(`Loaded heating controller...`);
   const { personalCalendar } = getEntities(client);
 
   personalCalendar.onStartEvent(async (event) => {

@@ -1,4 +1,4 @@
-import { Plugin } from "../../src/plugin";
+import { Plugin } from "ts-automation";
 
 import { initialise, unload } from "./initialise";
 
