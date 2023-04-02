@@ -1,9 +1,9 @@
-import { Logger } from "hass-ts";
-import fs from "node:fs/promises";
-import { exists } from "../core/exists";
-import { pluginsDir } from "./plugins-dir";
-import { updatePackageJson } from "../core/template-package-json";
-import { exec } from "node:child_process";
+import { exec } from 'node:child_process';
+import fs from 'node:fs/promises';
+import { Logger } from 'hass-ts';
+import { exists } from '../core/exists';
+import { pluginsDir } from './plugins-dir';
+import { updatePackageJson } from '../core/template-package-json';
 
 export const ensurePluginsDir = async (logger: Logger) => {
   if (!(await exists(pluginsDir))) {
@@ -12,6 +12,6 @@ export const ensurePluginsDir = async (logger: Logger) => {
   }
   await updatePackageJson(`${pluginsDir}/package.json`);
 
-  const process = exec("yarn install", { cwd: pluginsDir });
-  process.on("data", (data) => logger.info(data));
+  const process = exec('yarn install', { cwd: pluginsDir });
+  process.on('data', (data) => logger.info(data));
 };

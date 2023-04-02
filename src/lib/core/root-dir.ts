@@ -1,3 +1,3 @@
-import path from "node:path";
+import path from 'node:path';
 
-export const ROOT_DIR = path.join(__dirname, "..", "..", "..");
+export const ROOT_DIR = path.join(__dirname, '..', '..', '..');

@@ -1,11 +1,11 @@
-import { Client, Logger } from "hass-ts";
-import fs from "node:fs/promises";
-import { pluginsDir } from "./plugins-dir";
-import { exists } from "../core/exists";
-import { Plugin } from "./plugin";
-import { pluginsMap } from "./plugins-map";
-import path from "node:path";
-import { listAllFiles } from "../core/list-all-files";
+import { Client, Logger } from 'hass-ts';
+import fs from 'node:fs/promises';
+import { pluginsDir } from './plugins-dir';
+import { exists } from '../core/exists';
+import { Plugin } from './plugin';
+import { pluginsMap } from './plugins-map';
+import path from 'node:path';
+import { listAllFiles } from '../core/list-all-files';
 
 export const loadPlugin = async (
   name: string,
