@@ -2,21 +2,30 @@ import path from "node:path";
 import fs from "node:fs/promises";
 import { ROOT_DIR } from "./root-dir";
 import { DEPENDENCIES, HASS_TS } from "./constants";
+import { exists } from "./exists";
 
-const getPackageJson = async () => {
+export const updatePackageJson = async (pluginsPackageJsonPath: string) => {
   const packageJsonPath = path.join(ROOT_DIR, "package.json");
-  const packageJson = JSON.parse(
+  const currentPackageJson = JSON.parse(
     await fs.readFile(packageJsonPath, { encoding: "utf-8" })
   );
-  const hassVersion = packageJson[DEPENDENCIES][HASS_TS];
+  const hassVersion = currentPackageJson[DEPENDENCIES][HASS_TS];
 
-  return `{
-  "dependencies": {
-    "hass-ts": "${hassVersion}",
-  },
-}`;
-};
+  const hassTsDependencies = {
+    dependencies: {
+      "hass-ts": hassVersion,
+    },
+  };
 
-export const updatePackageJson = async (path: string) => {
-  await fs.writeFile(path, await getPackageJson());
+  const packageJson = (await exists(pluginsPackageJsonPath))
+    ? {
+        ...JSON.parse(
+          await fs.readFile(pluginsPackageJsonPath, { encoding: "utf-8" })
+        ),
+        hassTsDependencies,
+      }
+    : hassTsDependencies;
+
+  const content = JSON.stringify(packageJson);
+  await fs.writeFile(packageJsonPath, content);
 };
