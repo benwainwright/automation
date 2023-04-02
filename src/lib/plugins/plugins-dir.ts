@@ -5,7 +5,6 @@ export const pluginsDir = path.join(
   __dirname,
   "..",
   "..",
-  "..",
   "config",
   PLUGINS_DIR
 );

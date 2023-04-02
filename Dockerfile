@@ -8,7 +8,7 @@ RUN \
 
 COPY ./package.json /package.json
 COPY ./yarn.lock /yarn.lock
-RUN yarn install
+RUN yarn install --production --frozen-lockfile
 COPY ./src /src
 COPY ./config.yaml /config.yaml
 COPY ./run.sh /run.sh
