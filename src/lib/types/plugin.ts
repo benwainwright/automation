@@ -1,4 +1,4 @@
-import { Client, Logger } from "hass-ts";
+import { Client, Logger } from 'ts-automation';
 
 export interface Plugin {
   /**

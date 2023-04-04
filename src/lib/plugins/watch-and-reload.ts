@@ -1,4 +1,4 @@
-import { Client, Logger } from 'hass-ts';
+import { Client, Logger } from 'ts-automation';
 import { loadPlugin } from './load-plugin';
 import { pluginsDir } from './plugins-dir';
 import chokidar from 'chokidar';

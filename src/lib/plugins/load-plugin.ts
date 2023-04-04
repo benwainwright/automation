@@ -1,8 +1,8 @@
-import { Client, Logger } from 'hass-ts';
+import { Client, Logger } from 'ts-automation';
 import fs from 'node:fs/promises';
 import { pluginsDir } from './plugins-dir';
 import { exists } from '../core/exists';
-import { Plugin } from './plugin';
+import { Plugin } from '../types/plugin';
 import { pluginsMap } from './plugins-map';
 import path from 'node:path';
 import { listAllFiles } from '../core/list-all-files';

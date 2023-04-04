@@ -1,8 +1,8 @@
-import { Plugin } from "ts-automation";
+import { Plugin } from 'ts-automation';
 
-import { initialise, unload } from "./initialise";
+import { initialise, unload } from './initialise';
 
 export const plugin: Plugin = {
   initialise,
-  unload,
+  unload
 };

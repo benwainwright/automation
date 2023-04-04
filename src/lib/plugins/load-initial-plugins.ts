@@ -1,4 +1,4 @@
-import { Client, Logger } from 'hass-ts';
+import { Client, Logger } from 'ts-automation';
 import fs from 'node:fs/promises';
 import { pluginsDir } from './plugins-dir';
 import { loadPlugin } from './load-plugin';

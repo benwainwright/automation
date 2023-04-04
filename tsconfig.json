@@ -7,7 +7,6 @@
     "strict": true,
     "esModuleInterop": true,
     "inlineSourceMap": true,
-    // we recommend using a current ES version
     "target": "es2020",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
