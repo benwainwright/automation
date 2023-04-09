@@ -1,7 +1,8 @@
 module.exports = {
-  extends: [
-    'semistandard'
-  ],
+  extends: ['semistandard'],
+  globals: {
+    NodeJS: true
+  },
 
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],

@@ -1,11 +1,9 @@
 import { Client } from 'ts-automation';
+import { entities } from './entities';
 
 export const switchHeatingInAllRoomsOff = async (client: Client) => {
-  const [bedroomClimate, livingRoomClimate, gymClimate] = client.getEntities(
-    'climate.bedroom',
-    'climate.living_room',
-    'climate.gym'
-  );
+  const { gymClimate, bedroomClimate, livingRoomClimate } =
+    client.getEntities(entities);
 
   await bedroomClimate.setHvacMode('off');
   await livingRoomClimate.setHvacMode('off');
