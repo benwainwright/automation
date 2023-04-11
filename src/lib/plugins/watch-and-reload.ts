@@ -3,8 +3,13 @@ import { loadPlugin } from './load-plugin';
 import { pluginsDir } from './plugins-dir';
 import chokidar from 'chokidar';
 import path from 'node:path';
+import { PluginMap } from '../types/plugin-map';
 
-export const watchAndReload = async (client: Client, logger: Logger) => {
+export const watchAndReload = async (
+  client: Client,
+  logger: Logger,
+  plugins: PluginMap
+) => {
   const watcher = chokidar.watch(`${pluginsDir}/**/*`, {
     persistent: true,
     usePolling: true,
@@ -14,8 +19,8 @@ export const watchAndReload = async (client: Client, logger: Logger) => {
   watcher.on('all', async (_event, watchedPath) => {
     logger.debug(`Change detected in '${watchedPath}'`);
     const dir = path.relative(pluginsDir, watchedPath).split('/')[0];
-    if (dir) {
-      await loadPlugin(dir, client, logger);
+    if (dir && dir !== 'node_modules') {
+      await loadPlugin(dir, client, logger, plugins);
     }
   });
 };

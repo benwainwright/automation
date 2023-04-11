@@ -5,12 +5,26 @@ import { getTimeout } from './get-timeout';
 
 let timeout: NodeJS.Timer | undefined;
 
+let isOn = true;
+
+export const switchOn = () => {
+  isOn = true;
+};
+
+export const switchOff = () => {
+  isOn = false;
+};
+
 export const initialise = async (client: Client, logger: Logger) => {
   logger.info('Loaded heating controller...');
 
   const personalCalendar = client.getEntity('calendar.personal_calendar');
 
   personalCalendar.onStartEvent(async (event) => {
+    if (!isOn) {
+      return;
+    }
+
     if (event.location) {
       logger.info('Event with location detected. Switching HVAC off');
     }

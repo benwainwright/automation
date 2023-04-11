@@ -1,3 +1,4 @@
 #!/usr/bin/with-contenv bashio
 
-yarn start
+
+NODE_DEBUG=http,http2 yarn start

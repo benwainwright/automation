@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "hass-ts": "^1.8.6"
+  }
+}

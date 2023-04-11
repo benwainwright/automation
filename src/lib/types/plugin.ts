@@ -12,4 +12,14 @@ export interface Plugin {
    * every reload. Put cleanup logic here
    */
   unload?: (logger: Logger) => Promise<void>;
+
+  /**
+   * Triggered when the switch for this plugin is changed to the 'on' state
+   */
+  switchOn: () => void;
+
+  /**
+   * Triggered when the switch for this plugin is changed to the 'off' state
+   */
+  switchOff: () => void;
 }
