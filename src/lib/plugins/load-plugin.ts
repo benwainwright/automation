@@ -5,8 +5,8 @@ import { exists } from '../core/exists';
 import { Plugin } from '../types/plugin';
 import path from 'node:path';
 import { listAllFiles } from '../core/list-all-files';
-import { SwitchState } from 'hass-ts';
 import { PluginMap } from '../types/plugin-map';
+import { InputBooleanState } from 'hass-ts/dist/types';
 
 export const loadPlugin = async (
   name: string,
@@ -19,7 +19,7 @@ export const loadPlugin = async (
     return;
   }
   const stat = await fs.stat(pluginPath);
-  const switchName = `switch.ts_automation_${name}` as const;
+  const switchName = `input_boolean.ts_automation_${name}` as const;
   if (stat.isDirectory()) {
     const pluginPair = plugins.get(name);
     if (pluginPair) {
@@ -47,7 +47,10 @@ export const loadPlugin = async (
 
       logger.debug(`Registering switch for ${name}`);
       await client.setState(switchName, { state: 'on' });
-      const switchListener = (oldState: SwitchState, newState: SwitchState) => {
+      const switchListener = (
+        oldState: InputBooleanState,
+        newState: InputBooleanState
+      ) => {
         if (oldState.state === 'off' && newState.state === 'on') {
           plugin.switchOn?.();
         }

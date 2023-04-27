@@ -1,6 +1,6 @@
-import { SwitchState } from 'hass-ts';
+import { InputBooleanState } from 'hass-ts';
 
 export type SwitchListener = (
-  oldState: SwitchState,
-  newState: SwitchState
+  oldState: InputBooleanState,
+  newState: InputBooleanState
 ) => void;
