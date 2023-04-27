@@ -1996,10 +1996,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hass-ts@^1.8.6:
-  version "1.8.6"
-  resolved "https://registry.npmjs.org/hass-ts/-/hass-ts-1.8.6.tgz#a38c86390ace7497e87b74fe112158c50be2540b"
-  integrity sha512-flwa+Da+oOhKp+qL1t5PNIKB4JlAhpOWZSlF0LNWgfIvGbb/uY4Xsa5lUs8mi/4RRb4+qLyvrNaoer7iMBF0Hw==
+hass-ts@^1.8.7:
+  version "1.8.7"
+  resolved "https://registry.npmjs.org/hass-ts/-/hass-ts-1.8.7.tgz#6420f6a3504e02681110863603da29186a0dda33"
+  integrity sha512-LqbzDE6DaqAvtmRcfI3v2blqBOFOgno5Y4KpzaXTyk4j18paKdDE0GjEtNkEFItaxlD+QaFSNVnOdbCfdctL/Q==
   dependencies:
     dotenv "^16.0.3"
     homeassistant-ws "^0.2.2"
