@@ -40,10 +40,10 @@ formdata-polyfill@^4.0.10:
   dependencies:
     fetch-blob "^3.1.2"
 
-hass-ts@^1.9.1:
-  version "1.9.1"
-  resolved "https://registry.npmjs.org/hass-ts/-/hass-ts-1.9.1.tgz#6219bde1b2530201fea81c5ee38585cb4dc98ea4"
-  integrity sha512-Q4uAeZWwI6egTQvHexJP0qUsQBOBMCjASvAti5UtEGxALgSrxi+IgIIffFc0xUgR68VVE2Nog/W1P+OJ3C5c3w==
+hass-ts@1.9.2:
+  version "1.9.2"
+  resolved "https://registry.npmjs.org/hass-ts/-/hass-ts-1.9.2.tgz#acd8ec67a3a246117ade4e7e87c345c42074d1ac"
+  integrity sha512-xuLWQG9nZiYC35VLOVBctbslzus5cxsiUzwV9mtzP9lNtquVkppJ17NRWOzE2qoExKeKK9AK1tnMHrHUMMzSKg==
   dependencies:
     dotenv "^16.0.3"
     homeassistant-ws "^0.2.2"

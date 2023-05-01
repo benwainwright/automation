@@ -17,9 +17,9 @@ export const watchAndReload = async (
   });
 
   watcher.on('all', async (_event, watchedPath) => {
-    logger.debug(`Change detected in '${watchedPath}'`);
     const dir = path.relative(pluginsDir, watchedPath).split('/')[0];
     if (dir && dir !== 'node_modules') {
+      logger.debug(`Change detected in '${watchedPath}'`);
       await loadPlugin(dir, client, logger, plugins);
     }
   });
